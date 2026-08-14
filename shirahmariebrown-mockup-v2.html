@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Shirah Marie Brown — Designer, Illustrator &amp; Storyteller</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@500;600;700;800&family=Lato:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F4F0EA;        /* warm linen, matches current site */
+    --cream-2:#ECE4DA;
+    --ink:#1C1C1C;          /* charcoal body text */
+    --ink-soft:#57534d;
+    --rose:#B07C85;         /* signature dusty mauve-rose */
+    --rose-deep:#96636D;
+    --rose-tint:#E7D6D8;
+    --taupe:#B9AE9F;        /* line-art / blueprint gray */
+    --line:#DfD5C9;
+    --display:"Rubik",-apple-system,Segoe UI,sans-serif;
+    --body:"Lato",-apple-system,Segoe UI,Helvetica,Arial,sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--body);
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    /* subtle diagonal linen texture, like the real site */
+    background-image:repeating-linear-gradient(45deg,rgba(0,0,0,.012) 0 1px,transparent 1px 6px);
+  }
+  a{color:inherit}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 32px}
+  .rule{height:1px;background:linear-gradient(90deg,transparent,var(--rose) 12%,var(--rose) 88%,transparent);opacity:.55;margin:0 32px}
+
+  /* NAV */
+  header{position:sticky;top:0;z-index:50;background:rgba(244,240,234,.9);backdrop-filter:blur(8px)}
+  nav{display:flex;align-items:center;justify-content:space-between;height:78px}
+  .brand{display:flex;align-items:center;gap:14px}
+  .monogram{width:44px;height:44px;border:2px solid var(--rose);border-radius:9px;display:flex;align-items:center;justify-content:center;
+    font-family:var(--display);font-weight:800;font-size:15px;letter-spacing:.5px;color:var(--rose);background:rgba(176,124,133,.06)}
+  .brand-name{font-family:var(--body);font-weight:400;font-size:22px;letter-spacing:.2px;color:var(--ink)}
+  .navlinks{display:flex;gap:34px;list-style:none;font-size:15px;letter-spacing:.3px}
+  .navlinks a{text-decoration:none;color:var(--ink);padding-bottom:4px;border-bottom:2px solid transparent;transition:.2s}
+  .navlinks a:hover,.navlinks a.active{color:var(--rose-deep);border-color:var(--rose)}
+  .menu-btn{display:none;background:none;border:0;font-size:24px;cursor:pointer;color:var(--rose-deep)}
+
+  /* HERO */
+  .hero{position:relative;overflow:hidden}
+  .hero-inner{display:grid;grid-template-columns:0.9fr 1.1fr;gap:24px;align-items:center;padding:56px 0 70px;position:relative;z-index:2}
+  .kicker{font-family:var(--display);font-weight:600;font-size:12.5px;letter-spacing:3px;text-transform:uppercase;color:var(--rose-deep);margin-bottom:26px}
+  h1.display{font-family:var(--display);font-weight:800;line-height:1.04;letter-spacing:-.5px}
+  h1.display .l1{display:block;color:var(--rose);font-size:clamp(32px,4.6vw,52px)}
+  h1.display .l2{display:block;color:var(--ink);font-size:clamp(30px,4.3vw,48px);margin-top:6px}
+  .lead{font-size:clamp(16px,1.5vw,18.5px);color:var(--ink-soft);max-width:560px;margin-top:26px}
+  .cta{display:flex;gap:16px;margin-top:34px;flex-wrap:wrap}
+  .btn{display:inline-block;text-decoration:none;font-family:var(--body);font-size:15px;letter-spacing:.3px;padding:13px 30px;border-radius:6px;transition:.2s;font-weight:700}
+  .btn-primary{background:var(--rose);color:#fff}
+  .btn-primary:hover{background:var(--rose-deep)}
+  .btn-ghost{border:1.5px solid var(--rose);color:var(--rose-deep)}
+  .btn-ghost:hover{background:var(--rose);color:#fff}
+
+  /* hero art — City Hall line drawing placeholder + blueprint motif */
+  .hero-art{position:relative;min-height:380px;display:flex;align-items:center;justify-content:center}
+  .blueprint{position:absolute;inset:0;z-index:0;opacity:.5}
+  .art-frame{position:relative;z-index:1;text-align:center}
+  .art-note{position:absolute;left:50%;bottom:8px;transform:translateX(-50%);font-size:11px;letter-spacing:.4px;color:var(--rose-deep);
+    background:rgba(244,240,234,.85);border:1px dashed var(--rose);border-radius:4px;padding:5px 12px;white-space:nowrap}
+
+  /* INTRO band */
+  .intro{padding:56px 0}
+  .intro p{font-family:var(--display);font-weight:500;font-size:clamp(19px,2.3vw,25px);line-height:1.5;max-width:900px;color:var(--ink)}
+  .intro p em{font-style:normal;color:var(--rose-deep)}
+
+  /* SECTIONS */
+  section{padding:74px 0}
+  .sec-head{display:flex;align-items:baseline;gap:16px;margin-bottom:14px}
+  .sec-head .num{font-family:var(--display);font-weight:700;font-size:14px;color:var(--rose);letter-spacing:2px}
+  .sec-head h2{font-family:var(--display);font-weight:800;font-size:clamp(26px,3.6vw,38px);color:var(--ink)}
+  .sec-sub{color:var(--ink-soft);max-width:600px;font-size:17px;margin-bottom:42px}
+
+  /* WORK */
+  .work-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+  .card{background:#FBF8F3;border:1px solid var(--line);border-radius:8px;overflow:hidden;display:flex;flex-direction:column;transition:.25s}
+  .card:hover{transform:translateY(-4px);box-shadow:0 16px 38px rgba(150,99,109,.14);border-color:var(--rose-tint)}
+  .ph{aspect-ratio:4/3;position:relative;background:var(--cream-2);
+      background-image:
+        linear-gradient(rgba(185,174,159,.16) 1px,transparent 1px),
+        linear-gradient(90deg,rgba(185,174,159,.16) 1px,transparent 1px);
+      background-size:26px 26px;display:flex;align-items:center;justify-content:center;text-align:center;border-bottom:1px solid var(--line)}
+  .ph span{font-size:12.5px;letter-spacing:.3px;color:var(--rose-deep);background:rgba(251,248,243,.9);padding:9px 15px;border:1px dashed var(--rose);border-radius:5px;max-width:78%}
+  .card-body{padding:26px 28px 30px}
+  .tag{display:inline-block;font-family:var(--display);font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--rose-deep);font-weight:600;margin-bottom:12px}
+  .card-body h3{font-family:var(--display);font-weight:700;font-size:23px;margin-bottom:4px;color:var(--ink)}
+  .card-body .h3sub{color:var(--rose-deep);font-size:15px;font-style:italic;margin-bottom:14px}
+  .card-body p{color:var(--ink-soft);font-size:15.5px}
+
+  /* ABOUT */
+  .about{background:var(--cream-2)}
+  .about-grid{display:grid;grid-template-columns:0.8fr 1.2fr;gap:54px;align-items:start;margin-top:8px}
+  .about-photo{aspect-ratio:3/4;border:1px solid var(--line);border-radius:8px;
+    background-image:
+      linear-gradient(rgba(185,174,159,.16) 1px,transparent 1px),
+      linear-gradient(90deg,rgba(185,174,159,.16) 1px,transparent 1px);
+    background-size:26px 26px;background-color:#F4F0EA;display:flex;align-items:center;justify-content:center}
+  .about-photo span{font-size:12.5px;color:var(--rose-deep);background:rgba(244,240,234,.9);padding:9px 15px;border:1px dashed var(--rose);border-radius:5px;text-align:center;max-width:78%}
+  .about-body h4{font-family:var(--display);font-weight:700;font-size:16px;color:var(--rose-deep);margin:22px 0 5px;letter-spacing:.2px}
+  .about-body h4:first-child{margin-top:0}
+  .about-body p{color:var(--ink-soft);margin-bottom:2px}
+  .credo{font-family:var(--display);font-weight:500;font-size:18px;color:var(--ink);border-left:3px solid var(--rose);padding-left:18px;margin-top:26px;line-height:1.5}
+
+  /* CONTACT */
+  .contact{position:relative;overflow:hidden}
+  .contact .big{font-family:var(--display);font-weight:700;font-size:clamp(24px,3.4vw,34px);color:var(--rose);max-width:640px;line-height:1.28;margin:6px 0 12px}
+  .contact .big .ink{color:var(--ink)}
+  .contact p.sub{color:var(--ink-soft);font-size:17px;max-width:560px;margin-bottom:32px}
+  .links{display:flex;flex-direction:column;gap:14px;font-size:17px}
+  .links a{color:var(--ink);text-decoration:none;width:fit-content;border-bottom:1px solid var(--rose-tint);padding-bottom:3px;transition:.2s}
+  .links a:hover{border-color:var(--rose);color:var(--rose-deep)}
+  .links .label{font-family:var(--display);font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase;color:var(--rose-deep);margin-right:12px}
+
+  footer{position:relative;background:var(--ink);color:#cfc9c0;padding:40px 0;overflow:hidden}
+  footer .blueprint-f{position:absolute;inset:0;opacity:.22}
+  footer .fwrap{position:relative;z-index:2;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+  footer .mono-f{width:38px;height:38px;border:2px solid var(--rose);border-radius:8px;display:flex;align-items:center;justify-content:center;font-family:var(--display);font-weight:800;font-size:13px;color:var(--rose)}
+  footer .copy{font-size:13px;letter-spacing:.4px}
+
+  .note{background:#FBF3E6;border-bottom:1px solid #E7CE9c;color:#7a5a12;font-size:13px;padding:9px 0;text-align:center;letter-spacing:.2px}
+
+  @media(max-width:820px){
+    .hero-inner{grid-template-columns:1fr;gap:8px}
+    .hero-art{min-height:280px;order:-1}
+    .about-grid{grid-template-columns:1fr;gap:30px}
+    .about-photo{max-width:300px}
+  }
+  @media(max-width:680px){
+    .navlinks{display:none}
+    .work-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+
+<div class="note">Mockup v2 — rebuilt in your real brand: mauve-rose on linen, City Hall line art + blueprint motif, your own copy. Dashed boxes = where your creative files drop in.</div>
+
+<header>
+  <nav class="wrap">
+    <div class="brand">
+      <div class="monogram">SMB</div>
+      <div class="brand-name">Shirah Marie Brown</div>
+    </div>
+    <ul class="navlinks">
+      <li><a href="#home" class="active">Home</a></li>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="menu-btn">☰</button>
+  </nav>
+</header>
+<div class="rule"></div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="wrap hero-inner">
+    <div class="hero-copy">
+      <div class="kicker">Philadelphia · Design · Illustration · Story</div>
+      <h1 class="display">
+        <span class="l1">Where intuition</span>
+        <span class="l1">becomes craft.</span>
+      </h1>
+      <p class="lead">I'm Shirah — a designer, illustrator, and storyteller in Philadelphia. I make things, and I tell true stories about this city. Home of <strong>Bird Gang Studio</strong> and <strong>The Upside Philly</strong>: hands-on, iterative, and unapologetically expressive.</p>
+      <div class="cta">
+        <a href="#work" class="btn btn-primary">See the work</a>
+        <a href="#contact" class="btn btn-ghost">Let's work together</a>
+      </div>
+    </div>
+    <div class="hero-art">
+      <!-- Faint blueprint motif -->
+      <svg class="blueprint" viewBox="0 0 520 400" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+        <g stroke="#B9AE9F" stroke-width="1" fill="none" opacity="0.55">
+          <rect x="300" y="60" width="70" height="52"/><rect x="380" y="60" width="52" height="52"/>
+          <rect x="300" y="150" width="52" height="40"/><rect x="362" y="150" width="80" height="40"/>
+          <line x1="300" y1="210" x2="470" y2="210"/><line x1="300" y1="230" x2="420" y2="230"/>
+          <rect x="300" y="250" width="46" height="34"/><rect x="356" y="250" width="46" height="34" fill="#CBBFB0" fill-opacity="0.5"/>
+          <line x1="40" y1="330" x2="470" y2="330"/>
+        </g>
+        <g fill="#E7D6D8" opacity="0.5">
+          <rect x="300" y="60" width="34" height="24"/><rect x="356" y="250" width="20" height="18"/>
+        </g>
+      </svg>
+      <!-- City Hall line-art stand-in (replace with your illustration) -->
+      <div class="art-frame">
+        <svg width="190" height="330" viewBox="0 0 190 330" fill="none" aria-hidden="true">
+          <g stroke="#9c9182" stroke-width="1.4" fill="none" stroke-linejoin="round">
+            <path d="M95 8 l10 26 -20 0 z"/>
+            <line x1="95" y1="8" x2="95" y2="0"/>
+            <rect x="82" y="34" width="26" height="30"/>
+            <path d="M78 64 h34 l-6 14 -22 0 z"/>
+            <rect x="72" y="78" width="46" height="46"/>
+            <circle cx="95" cy="101" r="10"/>
+            <line x1="95" y1="101" x2="95" y2="94"/><line x1="95" y1="101" x2="100" y2="101"/>
+            <path d="M66 124 h58 l-8 18 -42 0 z"/>
+            <rect x="58" y="142" width="74" height="70"/>
+            <line x1="70" y1="158" x2="70" y2="212"/><line x1="86" y1="158" x2="86" y2="212"/>
+            <line x1="104" y1="158" x2="104" y2="212"/><line x1="120" y1="158" x2="120" y2="212"/>
+            <path d="M46 212 h98 l-10 22 -78 0 z"/>
+            <rect x="36" y="234" width="118" height="88"/>
+            <rect x="52" y="252" width="18" height="52"/><rect x="86" y="252" width="18" height="52"/><rect x="120" y="252" width="18" height="52"/>
+            <path d="M78 322 h34 v-34 a17 17 0 0 0 -34 0 z"/>
+          </g>
+        </svg>
+        <div class="art-note">↑ Your City Hall illustration lives here</div>
+      </div>
+    </div>
+  </div>
+</section>
+<div class="rule"></div>
+
+<!-- INTRO -->
+<div class="intro">
+  <div class="wrap">
+    <p>Creativity is my calibration tool. I maintain personal projects that keep me making — testing ideas, refining details, and turning concepts into something real. <em>They're not hobbies; they're where intuition becomes craft.</em> Staying close to culture and community continually shapes how I approach identity, experience, and the systems that hold them.</p>
+  </div>
+</div>
+<div class="rule"></div>
+
+<!-- WORK -->
+<section id="work">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">01</span><h2>Work</h2></div>
+    <p class="sec-sub">Two projects, one throughline: culture, identity, and the places that hold them.</p>
+    <div class="work-grid">
+      <div class="card">
+        <div class="ph"><span>[ Bird Gang Studio — your design / illustration / artifact pieces ]</span></div>
+        <div class="card-body">
+          <span class="tag">Design · Illustration · Artifacts</span>
+          <h3>Bird Gang Studio</h3>
+          <div class="h3sub">Culture, identity, and creative execution.</div>
+          <p>A creative studio inspired by Philadelphia culture and sports — where design, illustration, and physical artifacts intersect. It's hands-on, iterative, and unapologetically expressive. This work fuels my appreciation for taste, detail, and finish. Ideas are easy; shipping something that feels right takes judgment, restraint, and follow-through.</p>
+        </div>
+      </div>
+      <div class="card">
+        <div class="ph"><span>[ The Upside Philly — your story photography / imagery ]</span></div>
+        <div class="card-body">
+          <span class="tag">Storytelling · Community</span>
+          <h3>The Upside Philly</h3>
+          <div class="h3sub">Finding optimism without ignoring reality.</div>
+          <p>Reframing perspective — highlighting people, places, and moments that reflect resilience, care, and forward motion. A creative outlet rooted in community and storytelling, grounded in the belief that optimism is a discipline, not a platitude. It sharpens how I think about narrative, tone, and emotional resonance.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">02</span><h2>About</h2></div>
+    <div class="about-grid">
+      <div class="about-photo"><span>[ Portrait of you here ]</span></div>
+      <div class="about-body">
+        <h4>Who I am</h4>
+        <p>Philadelphia-based since 2022, Midwest-built, and the kind of person who commits hard once I care about something. I grew up in Ann Arbor, moved to New Jersey, and learned early what it means to adapt without losing yourself. Philly clicked fast: it has edge and soul, and I love the sports culture for the same reason I love the city — grit, loyalty, heart, and showing up even when it's ugly.</p>
+        <h4>What I'm about</h4>
+        <p>Momentum, craft, and purpose. I'm happiest when I'm building something real — something people can actually use, live with, and feel proud of. I love a good challenge, I love a clear win, and I love the energy of a team that's locked in.</p>
+        <h4>How I'm wired</h4>
+        <p>Rutgers was a defining chapter: I studied Organizational Communication and played Division I lacrosse, which trained me for pressure, accountability, and follow-through. Later I earned my MBA, cum laude, from Manhattan College's O'Malley School of Business. That discipline still shows up in how I make things — I care about finish, and I don't leave the field early.</p>
+        <div class="credo">"Ideas are easy. Shipping something that feels right takes judgment, restraint, and follow-through."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact">
+  <div class="wrap">
+    <div class="sec-head"><span class="num">03</span><h2>Let's work together.</h2></div>
+    <p class="big">Working on something in Philly — or want to talk shop about <span class="ink">design, illustration, or storytelling?</span></p>
+    <p class="sub">I'd love to hear from you. The best ideas start with a real conversation.</p>
+    <div class="links">
+      <a href="mailto:shirahmariebrown@gmail.com"><span class="label">Email</span>shirahmariebrown@gmail.com</a>
+      <a href="#"><span class="label">Instagram</span>@your-handle — send me the Bird Gang / Upside Philly handles</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <svg class="blueprint-f" viewBox="0 0 1200 200" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+    <g stroke="#8f857a" stroke-width="1" fill="none">
+      <line x1="0" y1="70" x2="1200" y2="70"/><line x1="0" y1="130" x2="1200" y2="130"/>
+      <rect x="740" y="70" width="120" height="60"/><rect x="880" y="86" width="70" height="44"/>
+      <line x1="200" y1="0" x2="200" y2="200"/><line x1="520" y1="0" x2="520" y2="200"/>
+    </g>
+  </svg>
+  <div class="wrap fwrap">
+    <div style="display:flex;align-items:center;gap:14px"><div class="mono-f">SMB</div><span class="copy">Shirah Marie Brown</span></div>
+    <span class="copy">© 2026 All Rights Reserved</span>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('.menu-btn').addEventListener('click',function(){
+    var n=document.querySelector('.navlinks');
+    var shown = n.style.display==='flex';
+    n.style.cssText = shown ? '' : 'display:flex;position:absolute;flex-direction:column;top:78px;right:32px;background:var(--cream);padding:18px 24px;border:1px solid var(--line);border-radius:8px;gap:16px;z-index:60';
+  });
+  document.querySelectorAll('.navlinks a').forEach(function(a){
+    a.addEventListener('click',function(){ if(window.innerWidth<=680){document.querySelector('.navlinks').style.cssText='';}});
+  });
+</script>
+</body>
+</html>
